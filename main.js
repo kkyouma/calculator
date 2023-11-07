@@ -3,8 +3,13 @@ let operator = document.addEventListener('click', )
 let num2 = document.addEventListener('click', )
 
 
-const sum = (a, b) => a + b
-const substract = (a, b) => a - b
-const multiply = (a, b) => a * b
-const divide = (a, b) => a/b
+const sum = () => num1 + num2
+const substract = () => num1 - num2
+const multiply = () => num1 * num2
+const divide = () => num1 / num2
 
+
+
+function operate (num1, operator, num2) {
+
+}
