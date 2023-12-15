@@ -4,7 +4,7 @@
   --color-fondo: #161A30;
   --color-texto: #D6E4E5;
   --color-teclas: #EFF5F5;
-  --color-warning: #f44336; /* red */
+  --color-warning: #f44336e3; /* red */
 }
 
 
@@ -30,10 +30,18 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 150px;
+  height: 200px;
   background-color: var(--color-primario);
 }
 
-#clear {
+.calculator > .operators {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50px;
+  background-color: var(--color-primario);
+}
+
+button .display {
   background-color: var(--color-warning);
 }
 
@@ -47,6 +55,9 @@ button {
 }
 
 button:hover {
+  background-color: var(--color-primario);
+}
+
+button:active {
   background-color: var(--color-secundario);
-  color: var(--color-texto);
 }
