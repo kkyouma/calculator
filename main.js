@@ -9,7 +9,6 @@ const multiply = () => num1 * num2
 const divide = () => num1 / num2
 
 
-
 function operate (num1, operator, num2) {
   if (operator === '+') {
     return add(num1, num2)
