@@ -4,12 +4,12 @@
   --color-fondo: #161A30;
   --color-texto: #D6E4E5;
   --color-teclas: #EFF5F5;
+  --color-warning: #f44336; /* red */
 }
 
 
 * {
   box-sizing: border-box;
-  border: 1px solid red;
   background-color: var(--color-fondo);
 }
 
@@ -21,21 +21,29 @@ body {
 
 .calculator {
   background-color: var(--color-primario);
-  padding: 20px;
   margin: 20px;
   border-radius: 10px;
   display: flex;
 }
 
+.calculator > .numbers {
+  display: flex;
+  flex-wrap: wrap;
+  width: 150px;
+  background-color: var(--color-primario);
+}
+
+#clear {
+  background-color: var(--color-warning);
+}
+
 button {
   background-color: var(--color-teclas);
   border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 5px;
   width: 50px;
   height: 50px;
   font-size: 20px;
+  padding: 0px;
 }
 
 button:hover {
