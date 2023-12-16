@@ -31,6 +31,14 @@ buttons.forEach(button => {
   button.addEventListener('click', () => {
     let buttonValue = button.textContent
 
+    if (buttonValue === 'C') {
+      num1 = ''
+      num2 = ''
+      operator = ''
+      display.textContent = '0'
+      return
+    }
+
     if (!operatorClicked) {
       num1 += buttonValue
       display.textContent = num1
@@ -39,14 +47,6 @@ buttons.forEach(button => {
       num2 += buttonValue
       display.textContent = num2
     }
-
-    if (buttonValue === 'C') {
-      num1 = ''
-      num2 = ''
-      operator = ''
-      display.textContent = ''
-    }
-
   })
 })
 
