@@ -62,7 +62,6 @@ div.display {
   background-color: var(--color-secundario);
   width: 200px;
   height: 50px;
-  border-radius: 5px;
   padding: 5px;
   display: flex;
 }

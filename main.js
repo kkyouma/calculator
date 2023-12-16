@@ -22,3 +22,12 @@ function operate (num1, operator, num2) {
     return 'Invalid operator'
   }
 }
+
+const display = document.querySelector('.display')
+const buttons = document.querySelectorAll('.btn')
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    display.textContent += button.textContent
+  })
+})
