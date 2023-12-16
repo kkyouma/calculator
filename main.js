@@ -61,10 +61,15 @@ const equal = document.querySelector('#equal')
 equal.addEventListener('click', () => {
   num1 = Number(num1)
   num2 = Number(num2)
-  display.textContent = operate(num1, operator, num2)
+  result = operate(num1, operator, num2)
+  display.textContent = result
+
+  operatorClicked = false;
 
   console.log(num1, num1 == Number(num1))
   console.log(num2, num2 == Number(num2))
+
+  num1 = result
 })
 
 
