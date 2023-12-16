@@ -19,16 +19,29 @@ function operate (num1, operator, num2) {
   } else if (operator === '/') {
     return divide(num1, num2)
   } else {
-    return 'Invalid operator'
+    return 'Invalid operation'
   }
 }
+
+let num1 = ''
 
 const display = document.querySelector('.display')
 const buttons = document.querySelectorAll('.btn')
 
 buttons.forEach(button => {
   button.addEventListener('click', () => {
-    display.textContent += button.textContent
+    let buttonValue = button.textContent
+    num1 += buttonValue
+    display.textContent = num1
+
+    if (buttonValue === '=') {
+      display.textContent = operate()
+    }
+
+    if (buttonValue === 'C') {
+      num1 = '0'
+      display.textContent = num1
+    }
   })
 })
 
