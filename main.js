@@ -1,6 +1,6 @@
-let num1 = document.addEventListener('click', );
-let operator = document.addEventListener('click', );
-let num2 = document.addEventListener('click', );
+// let num1 = document.addEventListener('click', );
+// let operator = document.addEventListener('click', );
+// let num2 = document.addEventListener('click', );
 
 
 const add = () => num1 + num2
@@ -31,3 +31,4 @@ buttons.forEach(button => {
     display.textContent += button.textContent
   })
 })
+
