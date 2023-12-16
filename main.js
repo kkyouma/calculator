@@ -1,12 +1,11 @@
-// let num1 = document.addEventListener('click', );
-// let operator = document.addEventListener('click', );
-// let num2 = document.addEventListener('click', );
+let num1 = ''
+let num2 = ''
+let operator = ''
 
-
-const add = () => num1 + num2
-const substract = () => num1 - num2
-const multiply = () => num1 * num2 
-const divide = () => num1 / num2
+const add = (num1, num2) => num1 + num2
+const substract = (num1, num2) => num1 - num2
+const multiply = (num1, num2) => num1 * num2 
+const divide = (num1, num2) => num1 / num2
 
 
 function operate (num1, operator, num2) {
@@ -23,10 +22,9 @@ function operate (num1, operator, num2) {
   }
 }
 
-let num1 = ''
-
 const display = document.querySelector('.display')
 const buttons = document.querySelectorAll('.btn')
+const operators = document.querySelectorAll('.operator')
 
 buttons.forEach(button => {
   button.addEventListener('click', () => {
@@ -35,7 +33,10 @@ buttons.forEach(button => {
     display.textContent = num1
 
     if (buttonValue === '=') {
-      display.textContent = operate()
+      display.textContent = operate(num1, operator, num2)
+      if (display.textContent === 'Invalid operation') {
+        num1 = '0'
+      }
     }
 
     if (buttonValue === 'C') {
