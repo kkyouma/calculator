@@ -70,15 +70,18 @@ function clearDisplay() {
   displayValue = '0'
   operator = ''
   result = ''
+  num1 = ''
+  num2 = ''
 }
 
 function inputOperator(op) {
   num1 = displayValue
-  displayValue = ''
+  displayValue = num2
   operator = op
 }
 
 function inputEquals() {
+  num2 = displayValue
   result = operate(num1, operator, num2)
   displayValue = result
 }
