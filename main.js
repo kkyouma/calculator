@@ -10,13 +10,13 @@ const multiply = (num1, num2) => num1 * num2
 const divide = (num1, num2) => num1 / num2
 
 function operate (num1, operator, num2) {
-  if (operator === '+') {
+  if (operator === 'add') {
     return add(num1, num2)
-  } else if (operator === '-') {
+  } else if (operator === 'substract') {
     return subtract(num1, num2)
-  } else if (operator === '*') {
+  } else if (operator === 'multiply') {
     return multiply(num1, num2)
-  } else if (operator === '/') {
+  } else if (operator === 'divide') {
     if (num2 === 0) {
       return 'Invalid operation'
     } else {
@@ -72,10 +72,13 @@ function clearDisplay() {
   result = ''
 }
 
+function inputOperator(operator) {
+  num1 = displayValue
+}
+
 function inputEquals() {
   result = operate(num1, operator, num2)
-
-  updateDisplay(result)
+  displayValue = result
 }
 
 
