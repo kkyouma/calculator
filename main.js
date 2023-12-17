@@ -1,7 +1,7 @@
 let num1 = ''
 let num2 = ''
 let operator = ''
-let displayValue = ''
+let displayValue = '0'
 let result = ''
 
 const add = (num1, num2) => num1 + num2
@@ -31,18 +31,23 @@ const display = document.querySelector('.display')
 const buttons = document.querySelectorAll('.btn')
 const operators = document.querySelectorAll('.operator')
 
-function unpdateDisplay () {
+function updateDisplay() {
   display.innerText = displayValue
 }
 
-function pressButton () {
+updateDisplay()
+
+function pressButton() {
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', () => {
       if (buttons[i].classList.contains('number')) {
         inputNumber(buttons[i].value);
-        unpdateDisplay();
+        updateDisplay();
       } else if (buttons[i].classList.contains('equal')){
-        inputEquals()
+        inputEquals();
+      } else if (buttons[i].classList.contains('clear')) {
+        clearDisplay();
+        updateDisplay()
       }
     })
   }
@@ -50,15 +55,24 @@ function pressButton () {
 
 pressButton()
 
-function inputNumber(displayValue) {
-  displayValue =+ displayValue
-  updateDisplay(displayValue)
+function inputNumber(number) {
+  if (displayValue === 0 || displayValue === '0'){
+    displayValue = number
+  } else {
+    displayValue += number
+  }
 }
 
-function inputEquals(displayValue) {
+function clearDisplay() {
+  displayValue = '0'
+  operator = ''
+  result = ''
+}
+
+function inputEquals() {
   result = operate(num1, operator, num2)
 
-  letDisplay(result)
+  unpdateDisplay(result)
 }
 
 
