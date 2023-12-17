@@ -45,9 +45,9 @@ function pressButton() {
         updateDisplay();
       } else if (button.classList.contains('operator')){
         inputOperator(button.value);
-        updateDisplay();
       } else if (button.classList.contains('equal')){
         inputEquals();
+        updateDisplay()
       } else if (button.classList.contains('clear')) {
         clearDisplay();
         updateDisplay()
@@ -72,8 +72,10 @@ function clearDisplay() {
   result = ''
 }
 
-function inputOperator(operator) {
+function inputOperator(op) {
   num1 = displayValue
+  displayValue = ''
+  operator = op
 }
 
 function inputEquals() {
