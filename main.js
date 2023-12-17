@@ -1,6 +1,8 @@
 let num1 = ''
 let num2 = ''
 let operator = ''
+let displayValue = ''
+let result = ''
 
 const add = (num1, num2) => num1 + num2
 const subtract = (num1, num2) => num1 - num2
@@ -15,7 +17,11 @@ function operate (num1, operator, num2) {
   } else if (operator === '*') {
     return multiply(num1, num2)
   } else if (operator === '/') {
-    return divide(num1, num2)
+    if (num2 === 0) {
+      return 'Invalid operation'
+    } else {
+      return divide(num1, num2)
+    }
   } else {
     return 'Invalid operation'
   }
@@ -25,51 +31,27 @@ const display = document.querySelector('.display')
 const buttons = document.querySelectorAll('.btn')
 const operators = document.querySelectorAll('.operator')
 
-let operatorClicked = false;
+function pressButton () {
+  for (i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', () => {
+      if (buttons[i].classList.contains('number')) {
+        
+      } else if (buttons[i].classList.contains('equal')){
+        inputEquals()
+      }
+    })
+  }
+}
 
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    let buttonValue = button.textContent
+pressButton()
 
-    if (buttonValue === 'C') {
-      num1 = ''
-      num2 = ''
-      operator = ''
-      display.textContent = '0'
-      return
-    }
+function inputOperand(displayValue) {
+}
 
-    if (!operatorClicked) {
-      num1 += buttonValue
-      display.textContent = num1
-    } else {
-      num1 = num1.slice(0, -1)
-      num2 += buttonValue
-      display.textContent = num2
-    }
-  })
-})
-
-operators.forEach(op => {
-  op.addEventListener('click', () => {
-    operator = op.textContent
-    operatorClicked = true;
-  })
-})
-
-const equal = document.querySelector('#equal')
-equal.addEventListener('click', () => {
-  num1 = Number(num1)
-  num2 = Number(num2)
+function inputEquals(displayValue) {
+  display.innerText
   result = operate(num1, operator, num2)
-  display.textContent = result
-
-  operatorClicked = false;
-
-  console.log(num1, num1 == Number(num1))
-  console.log(num2, num2 == Number(num2))
-
-  num1 = result
-})
+  displayValue = result
+}
 
 
