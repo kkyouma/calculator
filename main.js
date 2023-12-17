@@ -38,19 +38,22 @@ function updateDisplay() {
 updateDisplay()
 
 function pressButton() {
-  for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', () => {
-      if (buttons[i].classList.contains('number')) {
-        inputNumber(buttons[i].value);
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (button.classList.contains('number')) {
+        inputNumber(button.value);
         updateDisplay();
-      } else if (buttons[i].classList.contains('equal')){
+      } else if (button.classList.contains('operator')){
+        inputOperator(button.value);
+        updateDisplay();
+      } else if (button.classList.contains('equal')){
         inputEquals();
-      } else if (buttons[i].classList.contains('clear')) {
+      } else if (button.classList.contains('clear')) {
         clearDisplay();
         updateDisplay()
       }
     })
-  }
+  });
 }
 
 pressButton()
@@ -72,7 +75,7 @@ function clearDisplay() {
 function inputEquals() {
   result = operate(num1, operator, num2)
 
-  unpdateDisplay(result)
+  updateDisplay(result)
 }
 
 
