@@ -31,11 +31,16 @@ const display = document.querySelector('.display')
 const buttons = document.querySelectorAll('.btn')
 const operators = document.querySelectorAll('.operator')
 
+function unpdateDisplay () {
+  display.innerText = displayValue
+}
+
 function pressButton () {
-  for (i = 0; i < buttons.length; i++) {
+  for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', () => {
       if (buttons[i].classList.contains('number')) {
-        
+        inputNumber(buttons[i].value);
+        unpdateDisplay();
       } else if (buttons[i].classList.contains('equal')){
         inputEquals()
       }
@@ -45,13 +50,15 @@ function pressButton () {
 
 pressButton()
 
-function inputOperand(displayValue) {
+function inputNumber(displayValue) {
+  displayValue =+ displayValue
+  updateDisplay(displayValue)
 }
 
 function inputEquals(displayValue) {
-  display.innerText
   result = operate(num1, operator, num2)
-  displayValue = result
+
+  letDisplay(result)
 }
 
 
