@@ -62,22 +62,25 @@ pressButton()
 function inputNumber(number) {
   if (displayValue === 0 || displayValue === '0'){
     displayValue = number
-    console.log("1:", displayValue, num1, num2)
-  } else {
+    console.log("1.1:", displayValue, num1, num2)
+  } else if (result === null){
     displayValue += number
+    console.log("1.2:", displayValue, num1, num2)
+  } else if (result !== null) {
+    displayValue = number
+    console.log("1.3:", displayValue, num1, num2)
   }
 }
 
 function inputOperator(op) {
   if (num1 === null) {
     num1 = displayValue
-    displayValue = 0
+    displayValue = '0'
     operator = op
     console.log("2:", displayValue, num1, num2)
-  } else if (displayValue !== 0 && num1 !== null) {
+  } else if (displayValue !== '0' && num1 !== null) {
     console.log("3:", displayValue, num1, num2)
     inputEquals()
-    num1 = result
   }
 }
 
