@@ -1,7 +1,7 @@
 let num1 = null
 let num2 = null
 let operator = null
-let displayValue = '0'
+let displayValue = 0
 let result = null
 
 const add = (num1, num2) => num1 + num2
@@ -45,6 +45,7 @@ function pressButton() {
         updateDisplay();
       } else if (button.classList.contains('operator')){
         inputOperator(button.value);
+        updateDisplay()
       } else if (button.classList.contains('equal')){
         inputEquals();
         updateDisplay()
@@ -61,27 +62,32 @@ pressButton()
 function inputNumber(number) {
   if (displayValue === 0 || displayValue === '0'){
     displayValue = number
+    console.log("1:", displayValue, num1, num2)
   } else {
     displayValue += number
   }
 }
 
 function inputOperator(op) {
-  if (num2 ===  null) {
+  if (num2 === null) {
     num1 = displayValue
     displayValue = 0
     operator = op
-  } else if (num2 !== null) {
-    num1 = operate(num1, operate, num2)
-    operator = op
-    displayValue = num1
+    console.log("2:", displayValue, num1, num2)
+  } else if (displayValue !== 0 && num1 !== null) {
+    console.log("3:", displayValue, num1, num2)
+    inputEquals()
+    num1 = result
   }
 }
 
 function inputEquals() {
   num2 = displayValue
-  result = operate(num1, operator, num2)
+  result = operate(Number(num1), operator, Number(num2))
   displayValue = result
+  num1 = result
+  num2 = null
+  console.log("4:", displayValue, num1, num2)
 }
 
 function clearDisplay() {
@@ -90,6 +96,8 @@ function clearDisplay() {
   result = null
   num1 = null
   num2 = null
+  console.log("clear:", displayValue, num1, num2)
+
 }
 
 
