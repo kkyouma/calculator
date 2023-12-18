@@ -69,7 +69,7 @@ function inputNumber(number) {
 }
 
 function inputOperator(op) {
-  if (num2 === null) {
+  if (num1 === null) {
     num1 = displayValue
     displayValue = 0
     operator = op
