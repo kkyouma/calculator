@@ -1,8 +1,8 @@
-let num1 = ''
-let num2 = ''
-let operator = ''
+let num1 = null
+let num2 = null
+let operator = null
 let displayValue = '0'
-let result = ''
+let result = null
 
 const add = (num1, num2) => num1 + num2
 const subtract = (num1, num2) => num1 - num2
@@ -50,10 +50,10 @@ function pressButton() {
         updateDisplay()
       } else if (button.classList.contains('clear')) {
         clearDisplay();
-        updateDisplay()
+        updateDisplay();
       }
     })
-  });
+  })
 }
 
 pressButton()
@@ -66,24 +66,30 @@ function inputNumber(number) {
   }
 }
 
-function clearDisplay() {
-  displayValue = '0'
-  operator = ''
-  result = ''
-  num1 = ''
-  num2 = ''
-}
-
 function inputOperator(op) {
-  num1 = displayValue
-  displayValue = num2
-  operator = op
+  if (num2 ===  null) {
+    num1 = displayValue
+    displayValue = 0
+    operator = op
+  } else if (num2 !== null) {
+    num1 = operate(num1, operate, num2)
+    operator = op
+    displayValue = num1
+  }
 }
 
 function inputEquals() {
   num2 = displayValue
   result = operate(num1, operator, num2)
   displayValue = result
+}
+
+function clearDisplay() {
+  displayValue = '0'
+  operator = null
+  result = null
+  num1 = null
+  num2 = null
 }
 
 
